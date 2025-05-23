@@ -23,7 +23,7 @@ function AddEditNotes({ noteData, type, onclose }) {
     setError("");
 
     if (type === "edit") {
-      EditNote();
+      editNewNote();
     } else {
       addNewNote();
     }
