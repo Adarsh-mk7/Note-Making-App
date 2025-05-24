@@ -5,7 +5,8 @@ function TagInput({ tags, setTags }) {
   const handleInputChange = (events) => {
     setInputValue(events.target.value);
   };
-  const addNewTag = () => {
+  const addNewTag = (e) => {
+    if (e) e.preventDefault();
     if (inputValue.trim() !== "") {
       setTags([...tags, inputValue.trim()]);
       setInputValue("");
@@ -29,7 +30,7 @@ function TagInput({ tags, setTags }) {
               className="flex items-center gap-2 text-sm text-slate-900 bg-slate-100 px-3 py-1 rounded"
             >
               # {tag}
-              <button onClick={() => {}}>
+              <button onClick={() => handleRemoveTag(tag)}>
                 <MdClose />
               </button>
             </span>
